@@ -1,0 +1,4 @@
+/libreria/libro[titulo/@leng="en"]/autor[starts-with(., "P")]
+/libreria/libro[@codigo=/libreria/almacen//codigo]/titulo
+/libreria/libro[precio>/libreria/libro[last()]/precio]/titulo
+/libreria/libro[autor[2]]/titulo

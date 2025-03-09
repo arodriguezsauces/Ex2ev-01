@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definimos el elemento "productosfinancieros" como un contenedor de productos -->
+  <xs:element name="productosfinancieros">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- El elemento "producto" se repite varias veces dentro de "productosfinancieros" -->
+        <xs:element name="producto" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- El sub-elemento "nombre" de tipo cadena de texto -->
+              <xs:element name="bono" >
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="valoractual" type="xs:decimal">
+                            <xs:complexType>
+                                <xs:attribute name="moneda" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="beneficio" type="xs:float"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+              <!-- El sub-elemento "tipo" de tipo cadena de texto -->
+              <xs:element name="tipo" type="xs:string"/>
+              
+              <!-- El sub-elemento "monto" de tipo decimal -->
+              <xs:element name="monto" type="xs:decimal"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
