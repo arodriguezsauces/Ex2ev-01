@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="productosfinancieros">
+        <xs:complexType>
+        <xs:sequence>
+            <xs:element name="producto" maxOccurs="unbounded">
+            <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="bono" minOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="valoractual" minOccurs="1"></xs:element>
+                                <xs:element name="beneficio" minOccurs="1"></xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="futuro" minOccurs="1" >
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="elemento" minOccurs="1"></xs:element>
+                                <xs:element name="beneficio"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="decimales" minOccurs="1" >
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="empresa" minOccurs="1"></xs:element>
+                                <xs:element name="beneficio"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
