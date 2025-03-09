@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Declaración tipos simples-->
+    <xs:simpleType name="monedaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="yenes"/>
+            <xs:enumeration value="dolares"/>
+            <xs:enumeration value="euros"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idiomaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="espanol"/>
+            <xs:enumeration value="ingles"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paisType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="usa"/>
+            <xs:enumeration value="mexico"/>
+            <xs:enumeration value="argentina"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Declaración tipos complejos-->
+    <xs:complexType name="bonoType">
+        <xs:sequence>
+            <xs:element name="valoractual">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="valor" type="xs:decimal"/>
+                    </xs:sequence>
+                    <xs:attribute name="moneda" type="monedaType" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="beneficio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="futuroType">
+        <xs:sequence>
+            <xs:element name="elemento">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nombre" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="idioma" type="idiomaType" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="beneficio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="accionesType">
+        <xs:sequence>
+            <xs:element name="empresa">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nombre" type="xs:string"/>
+                    </xs:sequence>
+                    <xs:attribute name="pais" type="paisType" use="required"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="beneficio" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Declaración de elementos-->
+    <xs:element name="productosfinancieros">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="bono" type="bonoType" minOccurs="0"/>
+                            <xs:element name="futuro" type="futuroType" minOccurs="0"/>
+                            <xs:element name="acciones" type="accionesType" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
