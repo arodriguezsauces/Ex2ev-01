@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="productosfinancieros">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="producto">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="bono"> 
+                                <xs:complexType >
+                                    <xs:sequence>
+                                        <xs:element name="valoractual">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                 
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                            <xs:attribute name="moneda" type="xs:float" value="dolares|euros|yenes"/>
+
+                                        
+                                        </xs:element>
+                                    </xs:sequence>
+                                    
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
