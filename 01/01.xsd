@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<!--Definicion del elemento raiz  -->
+    <xs:element name="productosfinancieros">
+        <xs:complexType name="tipoProducto">
+            <xs:sequence>
+                <xs:element name="bono" type="tipoBono"/>
+                <xs:element name="futuro" type="tipoFuturo"/>
+                <xs:element name="acciones" type="tipoAcciones"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
